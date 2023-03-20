@@ -16,6 +16,32 @@ console.log(
 // The resources should be lists of resources
 // The recommendations should be lists of recommendations
 
+class FinOpsUser {
+  project = []
+  detatchedpersistentDisk = []
+  recommendation = []
+  notification = []
+
+  constructor(emailAddress, userName, profilePicture, userID, accessToken) {
+    this.emailAddress = emailAddress
+    this.userName = userName
+    this.profilePicture = profilePicture
+    this.userID = userID
+    this.accessToken = accessToken
+  }
+}
+
+class EngineeringUser {
+  detatchedpersistentDisk = []
+  constructor(emailAddress, userName, profilePicture, userID, accessToken) {
+    this.emailAddress = emailAddress
+    this.userName = userName
+    this.profilePicture = profilePicture
+    this.userID = userID
+    this.accessToken = accessToken
+  }
+}
+
 const Franz = {
   emailAddress: 'tom.schwabe1@outlook.de',
   userName: 'Franz',
@@ -45,10 +71,11 @@ const project = {
 }
 
 const detatchedpersistentDisk = {
+  projectName: '',
   diskID: '',
   diskSize: '',
   diskType: '',
-  DiskZone: '',
+  diskZone: '',
   Status: '',
 }
 
@@ -58,6 +85,8 @@ const recommendation = {
   resourceType: '',
   recommendationStatus: '',
 }
+
+//select function is missing
 
 console.log(`Franz has the email address of ${Franz.emailAddress} and Joseph has the userID of ${Joseph.userID}`)
 console.log(
