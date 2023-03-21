@@ -1,6 +1,10 @@
-console.log(
-  'House Master is a software that decreases costs in the google cloud platform by optimizing the usage of resources.'
-)
+const FinOpsUser = require('./FinOpsUser')
+const EngineeringUser = require('./EngineeringUser')
+const Projects = require('./Projects')
+const DetatchedPersistentDisks = require('./DetatchedPersistentDisks')
+const Notification = require('./Notification')
+const DateRangePicker = require('./DateRangePicker')
+
 // for my google cloud optimization software that is supposed to archive or delete detached persistent disks I need the following:
 // A Finops user object would represent a user of the software. They can create lists of projects and consecutive resources, and recommendations.
 // An Engineering user object represents a user who only has visibility to his projects, resources and recommendations and can only select and deselect resources for recommended actions
@@ -16,85 +20,19 @@ console.log(
 // The resources should be lists of resources
 // The recommendations should be lists of recommendations
 
-class FinOpsUser {
-  project = []
-  detatchedpersistentDisk = []
-  recommendation = []
-  notification = []
-
-  constructor(emailAddress, userName, profilePicture, userID, accessToken) {
-    this.emailAddress = emailAddress
-    this.userName = userName
-    this.profilePicture = profilePicture
-    this.userID = userID
-    this.accessToken = accessToken
-  }
-}
-
-class EngineeringUser {
-  detatchedpersistentDisk = []
-  constructor(emailAddress, userName, profilePicture, userID, accessToken) {
-    this.emailAddress = emailAddress
-    this.userName = userName
-    this.profilePicture = profilePicture
-    this.userID = userID
-    this.accessToken = accessToken
-  }
-}
-
-const Franz = {
-  emailAddress: 'tom.schwabe1@outlook.de',
-  userName: 'Franz',
-  profilePicture: 'www.example.com/profilePicture',
-  userID: '234235ughin',
-  accessToken: '290th4govbSDG',
-}
-
-const Joseph = {
-  emailAddress: 'tom.schwabe1@outlook.de',
-  userName: 'Franz',
-  profilePicture: 'www.example.com/profilePicture',
-  userID: '234235ughin',
-  accessToken: '290th4govbSDG',
-}
-
-const chosenProjects = {
-  projectID: [],
-  projectName: [],
-  projectOwner: [],
-}
-
-const project = {
-  projectID: '234235ughin',
-  projectName: 'House Master',
-  projectOwner: 'Franz',
-}
-
-const detatchedpersistentDisk = {
-  projectName: '',
-  diskID: '',
-  diskSize: '',
-  diskType: '',
-  diskZone: '',
-  Status: '',
-}
-
-const recommendation = {
-  ID: '',
-  description: '',
-  resourceType: '',
-  recommendationStatus: '',
-}
-
-//select function is missing
-
-console.log(`Franz has the email address of ${Franz.emailAddress} and Joseph has the userID of ${Joseph.userID}`)
-console.log(
-  `The project ${project.projectName} has the projectID of ${project.projectID} and is owned by ${project.projectOwner}`
+const finOpsUser = new FinOpsUser('finopsuser@example.com', 'FinOps User', 'profile.jpg', '1234', 'abc123')
+const engineeringUser = new EngineeringUser(
+  'engineeringuser@example.com',
+  'Engineering User',
+  'profile.jpg',
+  '5678',
+  'def456'
 )
-console.log(
-  `The recommendation ${recommendation.description} has the ID of ${recommendation.ID} and is of the resource type ${recommendation.resourceType}`
-)
-console.log(
-  `The detatched persistent disk ${detatchedpersistentDisk.diskID} has the size of ${detatchedpersistentDisk.diskSize} and is of the type ${detatchedpersistentDisk.diskType}`
-)
+
+const project1 = new Projects('project1', 'Project 1', 'finopsuser@example.com', true, 1000)
+const project2 = new Projects('project2', 'Project 2', 'engineeringuser@example.com', false, 0)
+
+const disk1 = new DetatchedPersistentDisks('project1', 'disk1', 'SSD', 100, 'us-west1-a', 'archive', false)
+const disk2 = new DetatchedPersistentDisks('project1', 'disk2', 'HDD', 500, 'us-west1-b', 'delete', false)
+const disk3 = new DetatchedPersistentDisks('project2', 'disk3', 'SSD', 200, 'us-west1-a', 'archive', false)
+const disk4 = new DetatchedPersistentDisks('project2', 'disk4', 'HDD', 1000, 'us-west1-b', 'delete', false)
