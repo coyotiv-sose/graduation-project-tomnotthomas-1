@@ -1,4 +1,4 @@
-const DetatchedPersistentDisks = require('./DetatchedPersistentDisks')
+const DetatchedPersistentDisks = require('./DetatchedPersistentDisks.js')
 
 class Projects {
   static listOfGcpProjects = []
@@ -42,4 +42,4 @@ class Projects {
   }
 }
 
-module.exports = Projects
+module.exports = Projects.js

@@ -12,4 +12,4 @@ class DetatchedPersistentDisks {
   }
 }
 
-module.exports = DetatchedPersistentDisks
+module.exports = DetatchedPersistentDisks.js

@@ -1,7 +1,7 @@
-const FinOpsUser = require('./FinOpsUser')
-const Projects = require('./Projects')
-const Notification = require('./Notification')
-const DateRangePicker = require('./DateRangePicker')
+const FinOpsUser = require('./FinOpsUser.js')
+const Projects = require('./Projects.js')
+const Notification = require('./Notification.js')
+const DateRangePicker = require('./DateRangePicker.js')
 
 class FinOpsUser {
   constructor(emailAddress, userName, profilePicture, userID, accessToken) {
@@ -72,4 +72,4 @@ class FinOpsUser {
   }
 }
 
-module.exports = FinOpsUser
+module.exports = FinOpsUser.js
