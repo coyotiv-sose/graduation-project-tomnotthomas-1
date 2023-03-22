@@ -1,9 +1,9 @@
-const FinOpsUser = require('./FinOpsUser.js')
-const EngineeringUser = require('./EngineeringUser.js')
-const Projects = require('./Projects.js')
-const DetatchedPersistentDisks = require('./DetatchedPersistentDisks.js')
-const Notification = require('./Notification.js')
-const DateRangePicker = require('./DateRangePicker.js')
+const FinOpsUser = require('./FinOpsUser')
+const EngineeringUser = require('./EngineeringUser')
+const Projects = require('./Projects')
+const DetatchedPersistentDisks = require('./DetatchedPersistentDisks')
+const Notification = require('./Notification')
+const DateRangePicker = require('./DateRangePicker')
 
 // for my google cloud optimization software that is supposed to archive or delete detached persistent disks I need the following:
 // A Finops user object would represent a user of the software. They can create lists of projects and consecutive resources, and recommendations.
@@ -20,8 +20,8 @@ const DateRangePicker = require('./DateRangePicker.js')
 // The resources should be lists of resources
 // The recommendations should be lists of recommendations
 
-const finOpsUser = new FinOpsUser('finopsuser@example.com', 'FinOps User', 'profile.jpg', '1234', 'abc123')
-const engineeringUser = new EngineeringUser(
+const finOpsUser1 = new FinOpsUser('finopsuser@example.com', 'FinOps User', 'profile.jpg', '1234', 'abc123')
+const engineeringUser1 = new EngineeringUser(
   'engineeringuser@example.com',
   'Engineering User',
   'profile.jpg',

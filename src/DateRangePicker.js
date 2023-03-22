@@ -4,4 +4,4 @@ class DateRangePicker {
     this.startDateForCostOptimizationRun = startDateForCostOptimizationRun
   }
 }
-module.exports = DateRangePicker.js
+module.exports = DateRangePicker

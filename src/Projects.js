@@ -1,4 +1,4 @@
-const DetatchedPersistentDisks = require('./DetatchedPersistentDisks.js')
+const DetatchedPersistentDisks = require('./DetatchedPersistentDisks')
 
 class Projects {
   static listOfGcpProjects = []
@@ -40,6 +40,16 @@ class Projects {
     })
     return Projects.listOfSelectedResourcesPerProject
   }
+
+  get details() {
+    return {
+      projectID: this.projectID,
+      projectName: this.projectName,
+      projectOwner: this.projectOwner,
+      analyzed: this.analyzed,
+      potentialSavings: this.potentialSavings,
+    }
+  }
 }
 
-module.exports = Projects.js
+module.exports = Projects

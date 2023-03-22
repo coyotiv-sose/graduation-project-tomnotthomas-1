@@ -4,4 +4,4 @@ class Notification {
   }
 }
 
-module.exports = Notification.js
+module.exports = Notification

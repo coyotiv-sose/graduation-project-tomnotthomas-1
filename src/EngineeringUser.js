@@ -1,4 +1,4 @@
-const Projects = require('./Projects.js')
+const Projects = require('./Projects')
 
 class EngineeringUser {
   constructor(emailAddress, userName, profilePicture, userID, accessToken) {
@@ -41,4 +41,4 @@ class EngineeringUser {
   }
 }
 
-module.exports = EngineeringUser.js
+module.exports = EngineeringUser
