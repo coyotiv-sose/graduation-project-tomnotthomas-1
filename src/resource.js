@@ -10,6 +10,7 @@ class Resource {
     //Potential savings is something that is not yet implemented. It is used to show the user how much money they can save per month by performing the recommended actions on resources in the project.
     this.potentialSavings = potentialSavings
     this.recommendation = recommendation
+    this.select = select
   }
 
   get details() {

@@ -4,14 +4,12 @@
 //The projectOwner is the owner of the project in GCP.
 //Analyze is a boolean value that is used to determine whether the project should be analyzed or not.
 
-
-
 class Project {
-  constructor(id, name, owner, analyze, potentialSavings) {
+  constructor(id, name, owner, select, potentialSavings) {
     this.id = id
     this.name = name
     this.owner = owner
-    this.analyze = analyze
+    this.select = select
     //Potentialsavings is something that is not yet implemented. It is used to show the user how much money they can save per month by performing the recommended actions on resources in the project.
     this.potentialSavings = potentialSavings
   }
@@ -21,7 +19,7 @@ class Project {
       id: this.id,
       name: this.name,
       owner: this.owner,
-      analyze: this.analyze,
+      select: this.select,
       potentialSavings: this.potentialSavings,
     }
   }
