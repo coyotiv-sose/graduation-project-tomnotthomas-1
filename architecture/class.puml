@@ -1,48 +1,57 @@
-@startuml Person
+@startuml BusinessLogic
 
+package GoogleCloudResources {
 class Organization  {
-  name: name
-  owner: owner
-  id: id
-}
+  name: string
+  owner: string
+  id: string
+  }
 
 class Project {
-  id:id
-  name: name
-  owner: owner
-  select: select
-  potentialSavings: potentialSavings
-}
+  id:string
+  name: string
+  owner: string
+  select: checkbox
+  potentialSavings: number
+  }
 
-class Resource {
-  id: id
-  type: type
-  zone: zone
-  projectID: projectID
-  potentialSavings: potentialSavings
-  recommendation: recommendation
-  select: select
-}
-
-class ResourceRecommendation {
-  id: id
-  type: type
-  zone: zone
-  projectID: projectID
-  potentialSavings: potentialSavings
-  recommendation: recommendation
-  select: select
+class Recommendation {
+     id: string
+      resource: string
+      resourceType: string
+      description: string
+      potentialSavings: number
+      select: checkbox
+  }
 }
 
 class User {
-  emailAddress: emailAddress
-      userName: userName
-      profilePicture: profilePicture
-      userID: userID
-      accessToken: accessToken
+  constructor(emailAddress: string, userName: string, profilePicture: string, userID: string, accessToken: string)
+  emailAddress: string
+      userName: string
+      profilePicture: image
+      userID: string
+      accessToken: string
+
     }
 
+package Managers {
+class ProjectManager
 
+class OrganisationManager
 
+class RecommendationManager
+}
+
+User "1"--> OrganisationManager
+User "1"--> ProjectManager
+User "1"--> RecommendationManager
+
+OrganisationManager "1..*"--> Organization: Manages
+ProjectManager "1..*"--> Project: Manages
+RecommendationManager "1..*"--> Recommendation: Manages
+
+Organization "0..*" o---> Project: Contains
+Project "0..*" o--> Recommendation: Contains
 
 @enduml

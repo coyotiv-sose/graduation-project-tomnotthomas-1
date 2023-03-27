@@ -1,0 +1,23 @@
+@startuml usecase
+
+left to right direction
+actor "A FinOps User " as User
+
+useCase "Connect on organizational level" as uc1
+useCase "Get a list of all associated projects" as uc2
+useCase "Chooses from the list of projects" as uc3
+useCase "Get a list of all associated recommendations" as uc4
+useCase "Chooses from the list of recommendations" as uc5
+useCase "Starts Cost reduction run" as uc6
+
+
+User --> uc1
+User --> uc2
+User --> uc3
+User --> uc4
+User --> uc5
+User --> uc6
+
+
+
+@enduml
