@@ -31,7 +31,6 @@
         "files.trimFinalNewlines": true,
         "files.trimTrailingWhitespace": true,
         "editor.codeActionsOnSave": {
-          // For ESLint
           "source.fixAll.eslint": true,
           // For TSLint
           "source.fixAll.tslint": true,
@@ -53,7 +52,6 @@
         },
         "eslint.format.enable": true,
         "eslint.options": {},
-        "plantuml.server": "http://localhost:8080",
         "plantuml.render": "PlantUMLServer",
         "terminal.integrated.tabs.enabled": true,
         "workbench.editor.untitled.hint": "hidden",

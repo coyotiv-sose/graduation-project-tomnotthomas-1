@@ -1,6 +1,48 @@
-@startuml Person 
-class Person {
-  name: string
-  age: number
+@startuml Person
+
+class Organization  {
+  name: name
+  owner: owner
+  id: id
 }
+
+class Project {
+  id:id
+  name: name
+  owner: owner
+  select: select
+  potentialSavings: potentialSavings
+}
+
+class Resource {
+  id: id
+  type: type
+  zone: zone
+  projectID: projectID
+  potentialSavings: potentialSavings
+  recommendation: recommendation
+  select: select
+}
+
+class ResourceRecommendation {
+  id: id
+  type: type
+  zone: zone
+  projectID: projectID
+  potentialSavings: potentialSavings
+  recommendation: recommendation
+  select: select
+}
+
+class User {
+  emailAddress: emailAddress
+      userName: userName
+      profilePicture: profilePicture
+      userID: userID
+      accessToken: accessToken
+    }
+
+
+
+
 @enduml

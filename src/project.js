@@ -5,13 +5,11 @@
 //Analyze is a boolean value that is used to determine whether the project should be analyzed or not.
 
 class Project {
-  constructor(id, name, owner, select, potentialSavings) {
+  constructor(id, name, owner, select) {
     this.id = id
     this.name = name
     this.owner = owner
     this.select = select
-    //Potentialsavings is something that is not yet implemented. It is used to show the user how much money they can save per month by performing the recommended actions on resources in the project.
-    this.potentialSavings = potentialSavings
   }
 
   get details() {
@@ -20,7 +18,6 @@ class Project {
       name: this.name,
       owner: this.owner,
       select: this.select,
-      potentialSavings: this.potentialSavings,
     }
   }
 }

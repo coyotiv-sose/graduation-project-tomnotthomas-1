@@ -14,14 +14,14 @@ class User {
   get details() {
     return {
       emailAddress: this.emailAddress,
-      userName: this.userName,
+      name: this.name,
       profilePicture: this.profilePicture,
-      userID: this.userID,
+      id: this.id,
       accessToken: this.accessToken,
     }
   }
 
-  //With this code I can select a project or a resource, dependent on the input. id is either a project or resource id, items is either the projects or resources array and select is a boolean value.
+  //With this code I can select a project or a recommendation, dependent on the input. I can also deselect a project or a recommendation, dependent on the input.
   setSelection(id, items, select) {
     for (let i = 0; i < items.length; i++) {
       if (items[i].id === id) {
@@ -30,15 +30,15 @@ class User {
       }
     }
   }
-  //The user can filter projects or resources based on the boolean value of select = true.
+  //The user can filter projects or recommendations based on the select value.
   filterSelection(items) {
-    let filteredItems = []
+    let selectedItems = []
     for (let i = 0; i < items.length; i++) {
       if (items[i].select === true) {
-        filteredItems.push(items[i])
+        selectedItems.push(items[i])
       }
     }
-    return filteredItems
+    return selectedItems
   }
 }
 
