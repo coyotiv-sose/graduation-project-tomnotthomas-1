@@ -1,15 +1,14 @@
 const Recommendation = require('./recommendation.js')
+const Project = require('./project.js')
 
-//Array with all recommendations in GCP
-let allRecommendations = []
+//Add delete recommendations functionality
 
 //Dummy function that adds a new recommendation to the allRecommendations array. These recommendations are for each project that was previously selected.
-function addRecommendation(id, resource, resourceType, description, potentialSavings, select) {
-  const recommendation = new Recommendation(id, resource, resourceType, description, potentialSavings, select)
-  allRecommendations.push(recommendation)
+function addRecommendation(project, id, resource, resourceType, description, potentialSavings) {
+  const recommendation = new Recommendation(id, resource, resourceType, description, potentialSavings)
+  project.recommendations.push(recommendation)
 }
 
 module.exports = {
-  allRecommendations,
   addRecommendation,
 }

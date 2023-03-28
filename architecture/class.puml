@@ -26,7 +26,8 @@ class Recommendation {
 }
 
 class User {
-  constructor(emailAddress: string, userName: string, profilePicture: string, userID: string, accessToken: string)
+  constructor(emailAddress: string, userName: string,
+   profilePicture: string, userID: string, accessToken: string)
   emailAddress: string
       userName: string
       profilePicture: image
@@ -36,11 +37,11 @@ class User {
     }
 
 package Managers {
-class ProjectManager
+class ProjectManager <<M>>
 
-class OrganisationManager
+class OrganisationManager <<M>>
 
-class RecommendationManager
+class RecommendationManager <<M>>
 }
 
 User "1"--> OrganisationManager
@@ -51,7 +52,7 @@ OrganisationManager "1..*"--> Organization: Manages
 ProjectManager "1..*"--> Project: Manages
 RecommendationManager "1..*"--> Recommendation: Manages
 
-Organization "0..*" o---> Project: Contains
-Project "0..*" o--> Recommendation: Contains
+Organization "0..*" *--> Project: Contains
+Project "0..*" *--> Recommendation: Contains
 
 @enduml

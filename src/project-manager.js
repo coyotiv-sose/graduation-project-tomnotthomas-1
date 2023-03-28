@@ -1,15 +1,14 @@
 const Project = require('./project.js')
+const Organisation = require('./organisation.js')
 
-//Array with all projects in GCP
-let allProjects = []
+//Add delete projects functionality
 
 //Dummy function that adds a new project to the allProjects array
-function addProject(id, name, owner, select) {
-  const project = new Project(id, name, owner, select)
-  allProjects.push(project)
+function addProject(organisation, id, name, owner) {
+  const project = new Project(id, name, owner)
+  organisation.projects.push(project)
 }
 
 module.exports = {
-  allProjects,
   addProject,
 }
