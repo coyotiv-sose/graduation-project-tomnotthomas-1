@@ -1,0 +1,7 @@
+@startuml
+
+state "initial state" as state 1
+[*] --> state 1
+
+
+@enduml

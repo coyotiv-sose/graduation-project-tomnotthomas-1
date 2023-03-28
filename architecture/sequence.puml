@@ -1,0 +1,29 @@
+//create a cost optimization run, cancel cost optimization run, edit cost optimization run
+
+@startuml
+
+actor User
+participant "OrganizationManager" as O
+participant "ProjectManager" as P
+participant "RecommendationManager" as R
+
+participant "Organization" as A
+participant "Project" as B
+participant "Recommendation" as C
+
+User --> O : createOrganization()
+activate O
+O --> A : getOrganization()
+activate A
+User --> P : listProjects()
+activate P
+P --> B : getProjects()
+activate B
+User --> R : listRecommendations()
+activate R
+
+
+
+
+
+@enduml

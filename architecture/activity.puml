@@ -1,0 +1,19 @@
+@startuml activity
+
+start
+:User verifies organization details;
+:User clicks on "Start cost optimization";
+:User selects from projects to be analyzed;
+:User clicks confirm;
+:User gets recommendations per project;
+:User selects recommendations;
+:User clicks confirm;
+:User sets up a schedule for the recommendations;
+:User clicks confirm;
+:User gets a confirmation message;
+
+
+
+end
+
+@enduml
