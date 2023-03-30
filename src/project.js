@@ -1,4 +1,4 @@
-const addRecommendation = require('./recommendation-manager.js').addRecommendation
+const Recommendation = require('./recommendation.js')
 
 //This is a project class. It is used to create a project object. It has the following properties: projectID, projectName, projectOwner, analyzed, potentialSavings.
 //The projectID is the ID of the project in GCP.
@@ -9,18 +9,30 @@ const addRecommendation = require('./recommendation-manager.js').addRecommendati
 class Project {
   recommendations = []
 
-  constructor(id, name, owner) {
-    this.id = id
+  constructor(name, owner) {
     this.name = name
     this.owner = owner
   }
 
   get details() {
     return {
-      id: this.id,
       name: this.name,
       owner: this.owner,
     }
+  }
+  //getRecommendationsByProjectID is not yet defined but will be.
+  async loadRecommendations() {
+    const recommendations = await db.getRecommendationsByProjectId(this.id) // query the database for recommendations
+    this.recommendations = recommendations.map(
+      recommendation =>
+        new Recommendation(
+          recommendation.id,
+          recommendation.resource,
+          recommendation.resourceType,
+          recommendation.description,
+          recommendation.potentialSavings
+        )
+    ) // map the query results to Recommendation objects
   }
 }
 

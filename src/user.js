@@ -1,7 +1,9 @@
-class User {
-  searchJob = null //initialize searchJobs as an empty array
+const Organisation = require('./organisation.js')
 
-  constructor(emailAddress, name, profilePicture, id, accessToken) {
+class User {
+  organisation = []
+
+  constructor(emailAddress, name, profilePicture, accessToken) {
     this.emailAddress = emailAddress
     this.name = name
     this.profilePicture = profilePicture
@@ -17,35 +19,10 @@ class User {
     }
   }
 
-  createSearchJob(organisation) {
-    if (this.searchJob !== null) {
-      // check if searchJob already exists
-      console.log('Error: User can only create one search job at a time')
-      return
-    }
-
-    this.searchJob = [] // initialize searchJob as an empty array
-    const searchJob = {}
-    organisation.projects.forEach(project => {
-      const recommendations = project.recommendations.map(recommendation => {
-        return recommendation.details
-      })
-      searchJob[project.details.id] = {
-        project: project.details,
-        recommendations: recommendations,
-      }
-    })
-    this.searchJob.push(searchJob)
-  }
-
-  deleteSearchJob() {
-    if (this.searchJob === null) {
-      // check if searchJob exists
-      console.log('Error: No search job found')
-      return
-    }
-    this.searchJob = null // assign null to the instance variable to delete the search job
+  // I want to load an organisation for a user. getOrganisationByUserID is a a hypotetical function that is not yet working.
+  async loadOrganisation() {
+    const organisation = await db.getOrganisationByUserId(this.id) // query the database for organisation
+    this.organisation = new Organisation(organisation.id, organisation.name, organisation.owner)
   }
 }
-
 module.exports = User

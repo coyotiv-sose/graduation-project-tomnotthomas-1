@@ -6,17 +6,14 @@
 //const addRecommendation = require('./recommendation-manager.js').addRecommendation
 const axios = require('axios')
 
-//fetch users with axios
-
-axios.get('http://localHost:3000/users').then(response => {
-  console.log(response.data)
-})
-
 //Create a new user with axios
 
 axios
-  .post('http://localHost:3000/users', {
+  .post('http://localhost:3000/users', {
     name: 'Armando',
+    emailAddress: 'example@example.com',
+    profilePicture: 'https://lh3.googleusercontent.com/a-/AOh14GgQ2Z0Z',
+    accessToken: '123456789',
   })
   .then(response => {
     console.log(response.data)

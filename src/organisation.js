@@ -1,4 +1,4 @@
-const addProject = require('./project-manager.js').addProject
+const Project = require('./project.js')
 
 //This is a class for the organisation in GCP.
 //For our application we only have one organisation.
@@ -7,10 +7,9 @@ const addProject = require('./project-manager.js').addProject
 class Organisation {
   projects = []
 
-  constructor(name, owner, id) {
+  constructor(name, owner) {
     this.name = name
     this.owner = owner
-    this.id = id
   }
 
   get details() {
@@ -19,6 +18,11 @@ class Organisation {
       organisationOwner: this.owner,
       organisationID: this.id,
     }
+  }
+
+  async loadProjects() {
+    const projects = await db.getProjectsByOrganisationId(this.id) // query the database for projects
+    this.projects = projects.map(project => new Project(project.id, project.name, project.owner)) // map the query results to Project objects
   }
 }
 
